@@ -22,9 +22,19 @@ public class JavaBank {
         System.out.println("Cuantos prestamos irá a permitir?");
         int presti= lea.nextInt();
         prestamos= new Prestamo[presti];
+        boolean j= AdicionCliente('V');
+        System.out.println(j);
+        j= AdicionCliente('k');
+         System.out.println(j);
+          j= AdicionCliente('A');
+         System.out.println(j);
+          j= AdicionCliente('V');
+         System.out.println(j);
+         ImprimirDetalleMensual();
+         montoTotalPendiente();
     }
 
-    private boolean AdicionCliente( char tipo){
+    private static boolean AdicionCliente( char tipo){
         if (!(tipo=='V'||tipo=='A'))
             return false;
         int pos=0;
@@ -74,9 +84,10 @@ public class JavaBank {
        double mTP=0;
        for(Prestamo p: prestamos)
            if(p instanceof Prestamo)
-           mTP = mTP + p.getsaldoPendiente();
+           mTP = mTP + p.getSaldoPendiente();
        return mTP;
    }
+
 
    static void ImprimirDetalleMensual(){
        for(Prestamo p: prestamos)

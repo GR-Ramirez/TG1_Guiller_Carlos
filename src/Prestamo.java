@@ -17,15 +17,15 @@ public abstract class Prestamo {
         nombre= nom;
         cuotas= new Cuota[numPagos];
         double mensualBasico= monto/numPagos;
-        double inte= 1+getsaldoPendiente();
+        double inte=1+getTasaInteres();
         llenarCuotas(mensualBasico*inte);
     }
-    abstract double  getsaldoPendiente();
+    abstract double  getSaldoPendiente();
     abstract double  getTasaInteres( );
 
     public void llenarCuotas(double pg){
-        for(Cuota cuot: cuotas)
-            cuot= new Cuota(pg);
+        for(int i=0; i<cuotas.length; i++)
+            cuotas[i]= new Cuota(pg);
     }
 
     public void imprimir(){
